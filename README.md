@@ -32,11 +32,6 @@ pip install libevdev
 sudo chmod 666 /dev/uinput
 ```
 
-> Para tornar isso permanente, adicione uma regra udev:
-> ```
-> KERNEL=="uinput", MODE="0666"
-> ```
-
 ### 3. Encontre seu teclado
 
 ```bash
