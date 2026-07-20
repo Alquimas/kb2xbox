@@ -34,7 +34,7 @@ class XBoxController():
                     id[var.lower()] = int(val, 0)
                 else:
                     evjs = libevdev.evbit(var)
-                    if evjs is not None and evjs.is_defined:
+                    if evjs is not None:
                         ai = libevdev.InputAbsInfo(
                             minimum=-1000, maximum=1000,
                             ) if evjs.type.name == "EV_ABS" else None
@@ -44,7 +44,7 @@ class XBoxController():
                         keys = val.split(",")
                         for i,k in enumerate(keys):
                             evkb = libevdev.evbit(k)
-                            if evkb is not None and evkb.is_defined and devkb.has(evkb):
+                            if evkb is not None and devkb.has(evkb):
                                 mapping[evkb] = evjs
                                 mapping[evkb, 0] = 0
                                 mapping[evkb, 1] = 1
@@ -137,7 +137,7 @@ def main(args):
     #    printKeyboards(args)
     #    return 0
 
-    
+
     # prepare reading keyboard device
     path = argv.device
     fd = open(path, 'rb')
