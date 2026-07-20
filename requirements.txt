@@ -1,1 +1,3 @@
-libevdev
+# kb2xbox - Convert a keyboard to (multiple) Xbox controllers
+# Python bindings for libevdev (Linux evdev device wrapper + uinput)
+libevdev>=1.0,<2.0
